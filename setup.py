@@ -1,13 +1,13 @@
-from setuptools import setup
-from typing import List,OrderedDict
+from setuptools import  setup , find_packages
+from typing import List
 
 
 #Deckaring variables for setup functions
 PROJECT_NAME="housing-predictor"
-VERSION="0.0.1"
+VERSION="0.0.3"
 AUTHOR="Vinayak Gaikar"
 DESCRIPTION="This is the first FSDS Nov batch Machine Learning Project"
-PACKAGES=["housing"]
+#PACKAGES=["housing"]   # insted of this we can also use find_packeges function 
 REQUIREMENT_FILEE_NAME="requirements.txt"
 
 
@@ -23,7 +23,7 @@ def get_requirements_list()->List[str]:
 
 
     with open(REQUIREMENT_FILEE_NAME) as requirement_file:
-        return requirement_file.readlines()
+        return requirement_file.readlines().remove("-e .")
 
 
 setup(
@@ -31,7 +31,7 @@ name=PROJECT_NAME,
 version=VERSION,
 author=AUTHOR,
 description=DESCRIPTION,
-packages=PACKAGES,
+packages=find_packages(),
 install_requires=get_requirements_list()
 
 )
