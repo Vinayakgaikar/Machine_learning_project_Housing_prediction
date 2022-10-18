@@ -24,10 +24,12 @@ class HousingException(Exception):
         error_message = f"Error occured in scrip: [{file_name}] at line number: [{line_number}] error message : [{error_message}]"
         return error_message
 
+    # To get output given in print() statement.
     def __str__(self):
         return self.error_message
 
 
+    #To Get output in without print statement it will directly genrated from class return statement.
     def __repr__(self) -> str:
         return HousingException.__name__.str()
 
