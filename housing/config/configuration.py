@@ -11,7 +11,7 @@ from housing.constant import *
 class Configuration:
 
     def __init__(self,
-        config_file_path:str = CONFIG_FILE_NAME,
+        config_file_path:str = CONFIG_FILE_PATH,
         current_time_stamp:str = CURRENT_TIME_STAMP
         ) -> None:
         try:

@@ -80,6 +80,7 @@ target/
 # IPython
 profile_default/
 ipython_config.py
+housing/artifact
 
 # pyenv
 .python-version
