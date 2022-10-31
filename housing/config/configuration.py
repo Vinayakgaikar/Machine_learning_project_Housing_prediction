@@ -1,5 +1,6 @@
 
 from tkinter import E
+# This entity functions gives the structure what configuration information we want to spesify in config folder
 from housing.entity.config_entity import DataIngestionConfig, DataTransformationConfig, DataValidationConfig, ModelEvaluationConfig, ModelPusherConfig, ModelTrainerConfig, TrainingPipelineConfig
 from housing.exception import HousingException
 from housing.logger import logging
