@@ -5,4 +5,5 @@ sklearn
 pandas
 PyYAML  
 evidently  #checking data drift
+dill
 -e .

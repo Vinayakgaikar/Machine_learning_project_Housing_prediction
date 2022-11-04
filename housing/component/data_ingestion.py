@@ -16,7 +16,7 @@ class DataIngestion :
     def __init__(self,data_ingestion_config : DataIngestionConfig):
         try:
             logging.info(f"{'='*20}Data Ingestion log started.{'='*20} ")
-            self.data_ingestion_config = data_ingestion_config
+            self.data_ingestion_config = data_ingestion_config           # generated from configuration.py 
 
         except Exception as e :
             raise HousingException(e,sys)
@@ -33,7 +33,7 @@ class DataIngestion :
             #Means if tgz is not available then create it else not create any file
             os.makedirs(tgz_download_dir,exist_ok=True)
 
-            #basename gives url ending part
+            #basename give ending part of url
             housing_file_name = os.path.basename(download_url)
 
             tgz_file_path = os.path.join(tgz_download_dir, housing_file_name)
@@ -45,8 +45,6 @@ class DataIngestion :
 
         except Exception as e:
             raise HousingException(e,sys) from e
-
-
 
 
     def extract_tgz_file(self,tgz_file_path:str):
@@ -67,10 +65,9 @@ class DataIngestion :
             raise HousingException(e,sys) from e
             
 
-
     def split_data_as_train_test(self) -> DataIngestionArtifact:
         try:
-            raw_data_dir = self.data_ingestion_config.raw_data_dir  # from this get file path
+            raw_data_dir = self.data_ingestion_config.raw_data_dir  
 
             file_name = os.listdir(raw_data_dir)[0]                 # file path in list formate convert it into  file name 
 
