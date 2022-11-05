@@ -1,3 +1,4 @@
+# Mention details of variales and their data types
 columns:
   longitude: float
   latitude: float
