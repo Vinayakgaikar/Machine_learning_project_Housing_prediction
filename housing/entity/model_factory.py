@@ -47,13 +47,13 @@ def evaluate_classification_model(model_list: list, X_train:np.ndarray, y_train:
 def evaluate_regression_model(model_list: list, X_train:np.ndarray, y_train:np.ndarray, X_test:np.ndarray, y_test:np.ndarray, base_accuracy:float=0.6) -> MetricInfoArtifact:
     """
     Description:
-    This function compare multiple regression model return best model
+    #This function compare multiple regression model return best model
     Params:
     model_list: List of model
     X_train: Training dataset input feature
     y_train: Training dataset target feature
     X_test: Testing dataset input feature
-    y_test: Testing dataset input feature
+    y_test: Testing dataset target feature
     return
     It retured a named tuple
     
@@ -110,7 +110,7 @@ def evaluate_regression_model(model_list: list, X_train:np.ndarray, y_train:np.n
                                                         model_accuracy=model_accuracy,
                                                         index_number=index_number)
 
-                logging.info(f"Acceptable model found {metric_info_artifact}. ")
+                logging.info(f"Acceptable model found {metric_info_artifact}.")
             index_number += 1
         if metric_info_artifact is None:
             logging.info(f"No model found with higher accuracy than base accuracy")
@@ -156,9 +156,9 @@ def get_sample_model_config_yaml_file(export_dir: str):
 
 
 class ModelFactory:
-    def __init__(self, model_config_path: str = None,):
+    def __init__(self, model_config_path : str = None,):
         try:
-            self.config: dict = ModelFactory.read_params(model_config_path)
+            self.config: dict = ModelFactory.read_params(model_config_path) #path Mention in model_trainer
 
             self.grid_search_cv_module: str = self.config[GRID_SEARCH_KEY][MODULE_KEY]
             self.grid_search_class_name: str = self.config[GRID_SEARCH_KEY][CLASS_KEY]
@@ -367,4 +367,5 @@ class ModelFactory:
                                                                                   base_accuracy=base_accuracy)
         except Exception as e:
             raise HousingException(e, sys)
+            
             
