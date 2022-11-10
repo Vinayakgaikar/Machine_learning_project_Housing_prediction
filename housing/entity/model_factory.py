@@ -180,7 +180,7 @@ class ModelFactory:
             print(property_data)
             for key, value in property_data.items():
                 logging.info(f"Executing:$ {str(instance_ref)}.{key}={value}")
-                setattr(instance_ref, key, value)
+                setattr(instance_ref, key, value)      #create new dic key and value
             return instance_ref
         except Exception as e:
             raise HousingException(e, sys) from e
@@ -198,7 +198,7 @@ class ModelFactory:
     def class_for_name(module_name:str, class_name:str):
         try:
             # load the module, will raise ImportError if module cannot be loaded
-            module = importlib.import_module(module_name)
+            module = importlib.import_module(module_name)     #import library
             # get the class, will raise AttributeError if class cannot be found
             logging.info(f"Executing command: from {module} import {class_name}")
             class_ref = getattr(module, class_name)
@@ -254,7 +254,7 @@ class ModelFactory:
         """
         try:
             initialized_model_list = []
-            for model_serial_number in self.models_initialization_config.keys():
+            for model_serial_number in self.models_initialization_config.keys():  
 
                 model_initialization_config = self.models_initialization_config[model_serial_number]
                 model_obj_ref = ModelFactory.class_for_name(module_name=model_initialization_config[MODULE_KEY],

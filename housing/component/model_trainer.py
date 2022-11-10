@@ -73,7 +73,7 @@ class ModelTrainer:
             base_accuracy = self.model_trainer_config.base_accuracy
             logging.info(f"Expected accuracy: {base_accuracy}")
 
-            logging.info(f"Initiating operation model selecttion")
+            logging.info(f"Initiating operation model selecttion")   
             best_model = model_factory.get_best_model(X=x_train,y=y_train,base_accuracy=base_accuracy)
             
             logging.info(f"Best model found on training dataset: {best_model}")

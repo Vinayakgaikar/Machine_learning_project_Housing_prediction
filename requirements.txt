@@ -6,4 +6,5 @@ pandas
 PyYAML  
 evidently  #checking data drift
 dill
+sacred
 -e .
