@@ -1,15 +1,15 @@
-#from housing import pipeline
+from housing import pipeline
 from housing.pipeline.pipeline import Pipeline
 from housing.exception import HousingException
 from housing.logger import logging
 from housing.config.configuration import Configuration
 from housing.component.data_transformation import DataTransformation
-#import os
+import os
 
 def main():
     try:
-        #config_path = os.path.join("config","config.yaml")
-        #pipeline = Pipeline(Configuartion(config_file_path=config_path))
+        config_path = os.path.join("config","config.yaml")
+        pipeline = Pipeline(Configuration(config_file_path=config_path))
         pipeline = Pipeline()
         #pipeline.run_pipeline()
         pipeline.start()

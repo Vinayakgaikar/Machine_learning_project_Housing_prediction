@@ -6,7 +6,6 @@ from housing.logger import logging
 from housing.exception import HousingException
 from threading import Thread
 from typing import List
-from sacred import Experiment
 
 from multiprocessing import Process
 from housing.entity.artifact_entity import ModelPusherArtifact, DataIngestionArtifact, ModelEvaluationArtifact
@@ -24,15 +23,25 @@ from datetime import datetime
 import pandas as pd
 from housing.constant import EXPERIMENT_DIR_NAME, EXPERIMENT_FILE_NAME
 
-#when we run pipeline Thread will call run function given below
+
+
+Experiment = namedtuple("Experiment", ["experiment_id", "initialization_timestamp", "artifact_time_stamp",
+                                       "running_status", "start_time", "stop_time", "execution_time", "message",
+                                       "experiment_file_path", "accuracy", "is_model_accepted"])
+
+
+#"when we run pipeline Thread will call run function which is given below. Threading in python is used to run multiple
+# threads (tasks, function calls) at the same time. Thread is do parallelizam."
 class Pipeline (Thread):
-    experiment: Experiment = Experiment(*([None] * 11))
+    experiment: Experiment = Experiment(*([None] * 11))   #for every attribute in Experiment namedtuple intialize with None
     experiment_file_path = None
 
     def __init__(self, config: Configuration = Configuration() ) -> None:
         try:
             os.makedirs(config.training_pipeline_config.artifact_dir, exist_ok=True)
-            Pipeline.experiment_file_path=os.path.join(config.training_pipeline_config.artifact_dir,EXPERIMENT_DIR_NAME, EXPERIMENT_FILE_NAME)
+            Pipeline.experiment_file_path=os.path.join(config.training_pipeline_config.artifact_dir,
+                                                        EXPERIMENT_DIR_NAME, 
+                                                        EXPERIMENT_FILE_NAME)
             super().__init__(daemon=False, name="pipeline")
             self.config = config
         except Exception as e:
@@ -43,7 +52,7 @@ class Pipeline (Thread):
     def start_data_ingestion(self) -> DataIngestionArtifact:
         try:
             data_ingestion = DataIngestion(data_ingestion_config=self.config.get_data_ingestion_config())
-            return data_ingestion.initiate_data_ingestion()     #After execution of this code it will start data ingestion process
+            return data_ingestion.initiate_data_ingestion() #After execution of this code it will start data ingestion process
         except Exception as e:
             raise HousingException(e, sys) from e         
 
@@ -101,7 +110,6 @@ class Pipeline (Thread):
             return model_pusher.initiate_model_pusher()
         except Exception as e:
             raise HousingException(e, sys) from e
-
 
 
 

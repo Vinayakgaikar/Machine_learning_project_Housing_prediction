@@ -1,16 +1,21 @@
-
 import os
 from datetime import datetime
-from housing.logger import CURRENT_TIME_STAMP
 
-ROOT_DIR = os.getcwd()
+
+def get_current_time_stamp():
+    return f"{datetime.now().strftime('%Y-%m-%d-%H-%M-%S')}"
+
+    
+ROOT_DIR = os.getcwd()  #to get current working directory
 CONFIG_DIR = "config"
 CONFIG_FILE_NAME = "config.yaml"
 CONFIG_FILE_PATH = os.path.join(ROOT_DIR,CONFIG_DIR,CONFIG_FILE_NAME)
 
 
 
-CURRENT_TIME_STAMP= f"{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}"
+CURRENT_TIME_STAMP = get_current_time_stamp()
+
+
 
 
 # Training pipeline related variable
@@ -20,8 +25,9 @@ TRAINING_PIPELINE_NAME_KEY = "pipeline_name"
 
 
 # Data Ingestion related variable
+
 DATA_INGESTION_CONFIG_KEY = "data_ingestion_config"
-DATA_INGESTION_ARTIFACT_DIR = "data_ingestion"                 # define in which folder we specify data ingestion
+DATA_INGESTION_ARTIFACT_DIR = "data_ingestion"             # define in which folder we specify data ingestion
 DATA_INGESTION_DOWNLOAD_URL_KEY = "dataset_download_url"
 DATA_INGESTION_RAW_DATA_DIR_KEY = "raw_data_dir"
 DATA_INGESTION_TGZ_DOWNLOAD_DIR_KEY = "tgz_download_dir"
@@ -67,6 +73,7 @@ TARGET_COLUMN_KEY="target_column"
 
 
 # Model Training related variables
+
 MODEL_TRAINER_ARTIFACT_DIR = "model_trainer"
 MODEL_TRAINER_CONFIG_KEY = "model_trainer_config"
 MODEL_TRAINER_TRAINED_MODEL_DIR_KEY = "trained_model_dir"
@@ -79,7 +86,6 @@ MODEL_TRAINER_MODEL_CONFIG_FILE_NAME_KEY = "model_config_file_name"
 MODEL_EVALUATION_CONFIG_KEY = "model_evaluation_config"
 MODEL_EVALUATION_FILE_NAME_KEY = "model_evaluation_file_name"
 MODEL_EVALUATION_ARTIFACT_DIR = "model_evaluation"
-
 # Model Pusher config key
 MODEL_PUSHER_CONFIG_KEY = "model_pusher_config"
 MODEL_PUSHER_MODEL_EXPORT_DIR_KEY = "model_export_dir"

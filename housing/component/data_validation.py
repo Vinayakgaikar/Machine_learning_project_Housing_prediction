@@ -53,8 +53,7 @@ class DataValidation:
             if not is_available:
                 training_file = self.data_ingestion_artifact.train_file_path
                 testing_file = self.data_ingestion_artifact.test_file_path
-                message=f"Training file: {training_file} or Testing file: {testing_file}" \
-                    "is not present"
+                message=f"Training file: {training_file} or Testing file: {testing_file} is not present"
                 raise Exception(message)
 
             return is_available
