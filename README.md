@@ -1,94 +1,49 @@
-## Start Machine Learning project.
+# ML_Project_deployment
+## Start Machine Learning Project
 
-### Software and account Requirement.
+### Software and Accout Requirement.
 
 1. [Github Account](https://github.com)
 2. [Heroku Account](https://dashboard.heroku.com/login)
-3. [VS Code IDE](https://code.visualstudio.com/download)
-4. [GIT cli](https://git-scm.com/downloads)
+3. [VS Code](https://code.visualstudio.com/download)
+4. [GIT CLI](https://git-scm.com/downloads)
 5. [GIT Documentation](https://git-scm.com/docs/gittutorial)
 
+### Steps
+1. `git status` To check the git status 
+2. `git add . or git add <file_name>` To Add files to git
+3. `git commit -m "message"` To create version/commit all changes by git
+4. `git push origin main` To send version/changes to github
+5. 'git log' To check all version maintained by git
+5. `git remote -v` To check remote url 
 
-Creating conda environment
-```
-conda create -p venv python==3.7 -y
-```
-```
-conda activate venv/
-```
-OR 
-```
-conda activate venv
-```
+### Virtual environment and requirements.txt
+1. Creating conda virtual env
+`conda create -p <env_name> python==3.9 -y` -p to create venv in project folder itself
+2. Activate venv
+`conda activate <env_name>/`
+or
+`conda activate <env_name>`
+3. Creating requirement.txt file
+`pip freeze > requirements.txt`
+4. To install requirements.txt
+`pip install -r requirements.txt`
 
-```
-pip install -r requirements.txt
-```
+### To setpup CI/CD pipeline in heroku we need following information
+1. HEROKU_EMAIL: vinayakgaikar1998@gmail.com
+2. HEROKU_API_KEY: <API_KEY>
+3. HEROKU_APP_NAME: testingapps12
 
-To Add files to git
-```
-git add .
-```
-
-OR
-```
-git add <file_name>
-```
-
-> Note: To ignore file or folder from git we can write name of file/folder in .gitignore file
-
-To check the git status 
-```
-git status
-```
-To check all version maintained by git
-```
-git log
-```
-
-To create version/commit all changes by git
-```
-git commit -m "message"
-```
-
-To send version/changes to github
-```
-git push origin main
-```
-
-To check remote url 
-```
-git remote -v
-```
-
-To setup CI/CD pipeline in heroku we need 3 information
-1. HEROKU_EMAIL = vinayakgaikar1998@gmail.com
-2. HEROKU_API_KEY = <>
-3. HEROKU_APP_NAME = testingapps12
-
-BUILD DOCKER IMAGE
-```
-docker build -t <image_name>:<tagname> .
-```
-> Note: Image name for docker must be lowercase
+### BUILD DOCKER IMAGE
+1. `docker build -t <image_name>:<tag_name> .`
+> image_name should be in lower case and tag_name generally use 'latest'
+2. `docker images` To list Docker Image and get IMAGE_ID
+3. Run Docker Image
+   `docker run -p 5000:5000 -e PORT=5000 <IMAGE_ID>`
+4. `docker ps` To check running container in docker
+5. `docker stop <container_id>` to stop docker container 
 
 
-To list docker image
-```
-docker images
-```
-
-Run docker image
-```
-docker run -p 5000:5000 -e PORT=5000 f8c749e73678
-```
-
-To check running container in docker
-```
-docker ps
-```
-
-Tos stop docker conatiner
-```
-docker stop <container_id>
-```
+## Notes
+> If adding '-e .' then we must have setup.py file in root directory. This will create <custom_pkg_name>-egg.info file for every package which contains "__init__.py" file.
+> Where "-e ." executed inside "requirements.txt". Its actually lunching the "setup.py" hence the egg.info file will get created for all custom packages.
