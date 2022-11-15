@@ -25,8 +25,6 @@ Application url:
 `conda create -p <env_name> python==3.9 -y` -p to create venv in project folder itself
 2. Activate venv
 `conda activate <env_name>/`
-or
-`conda activate <env_name>`
 3. Creating requirement.txt file
 `pip freeze > requirements.txt`
 4. To install requirements.txt
