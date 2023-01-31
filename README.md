@@ -1,6 +1,10 @@
 # ML_Project_deployment
 ## Start Machine Learning Project
 
+The goal of this project, to built a model for analyzing and predict the housing price in California. It will 
+help in checking the median house value by using input features like total rooms in house, housing 
+median age, population, households etc. 
+
 Application url:
 [HousingPredictor](https://testingapps12.herokuapp.com/)
 
