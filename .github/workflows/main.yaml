@@ -9,7 +9,7 @@ on:
 # Your workflows jobs.
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest      #In github allows to ubuntu system and run all code and send it to heroku
     steps:
       # Check-out your repository.
       - name: Checkout
