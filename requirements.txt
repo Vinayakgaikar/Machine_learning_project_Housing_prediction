@@ -1,7 +1,7 @@
 numpy
 flask
 gunicorn   #It allows to run any python application concurrently by running multiple python process within a single dyno
-sklearn
+scikit-learn
 pandas
 PyYAML  
 evidently  #checking data drift
