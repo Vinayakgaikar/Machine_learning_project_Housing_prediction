@@ -40,8 +40,7 @@ Application url:
 3. HEROKU_APP_NAME: testingapps12
 
 ### BUILD DOCKER IMAGE
-1. `docker build -t <image_name>:<tag_name> .`
-> image_name should be in lower case and tag_name generally use 'latest'
+1. `docker build -t <image_name>:<tag_name> .` image_name should be in lower case and tag_name generally use 'latest'
 2. `docker images` To list Docker Image and get IMAGE_ID
 3. Run Docker Image
    `docker run -p 5000:5000 -e PORT=5000 <IMAGE_ID>`
