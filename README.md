@@ -6,7 +6,7 @@ help in checking the median house value by using input features like total rooms
 median age, population, households etc. 
 
 Application url:
-[HousingPredictor](https://testingapps12.herokuapp.com/)
+[HousingPredictor](https://mncmiq2utb.us-east-1.awsapprunner.com/)
 
 ### Software and Accout Requirement.
 
@@ -14,7 +14,7 @@ Application url:
 2. [Heroku Account](https://dashboard.heroku.com/login)
 3. [VS Code](https://code.visualstudio.com/download)
 4. [GIT CLI](https://git-scm.com/downloads)
-5. [GIT Documentation](https://git-scm.com/docs/gittutorial)
+5. [GIT Documentation](https://git-scm.com/docs/gittutorial)                                                                                                           
 
 ### Steps
 1. `git status` To check the git status 
